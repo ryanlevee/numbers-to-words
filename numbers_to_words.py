@@ -19,7 +19,7 @@ def numbers_to_words(n):
     def length(n, zeros):
         if len(n) in zeros or len(n) < 4:
             return zeros
-        zeros = list(map(lambda x: x+1, zeros))
+        zeros = list(map(lambda x: x+3, zeros))
         return length(n, zeros)
 
     n = int(str(n).replace(',',''))
