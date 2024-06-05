@@ -1,4 +1,11 @@
 def numbers_to_words(n):
+    if n == '0':
+        return 'zero'
+    elif not str(n).isnumeric():
+        raise TypeError
+    elif len(str(n)) > 51:
+        raise ValueError
+
     ones = ['one','two','three','four','five','six','seven','eight','nine',
             'ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen',
             'seventeen','eighteen','nineteen']
@@ -12,7 +19,7 @@ def numbers_to_words(n):
     def length(n, zeros):
         if len(n) in zeros or len(n) < 4:
             return zeros
-        zeros = list(map(lambda x: x+3, zeros))
+        zeros = list(map(lambda x: x+1, zeros))
         return length(n, zeros)
 
     n = int(str(n).replace(',',''))
@@ -34,4 +41,21 @@ def numbers_to_words(n):
         if n % num != 0 else '') + (numbers_to_words(n % num)
         if n % num != 0 else '')
 
-print(numbers_to_words(input('Enter a max_num between 1 and 10e50: ')))
+
+def main():
+    input_integer = input('Enter a max_num between 1 and 10e50: ')
+
+    try:
+        converted_str = numbers_to_words(input_integer)
+        print(converted_str)
+    except TypeError:
+        print('Please enter an integer.')
+        main()
+    except ValueError:
+        print('Please enter an integer that is 51 characters or less.')
+        main()
+
+
+if __name__ == '__main__':
+    main()
+
