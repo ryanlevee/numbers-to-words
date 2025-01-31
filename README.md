@@ -1,6 +1,6 @@
 <h2>Numbers to Words</h2>
 
-<p>Simple, recursive Python program that converts integers to their English-written word.</p>
+<p>Simple, recursive Python script that converts integers to their English-written word.</p>
 
 <h3>To Run:</h3>
 <ol>
